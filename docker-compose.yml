@@ -2,8 +2,9 @@ services:
   mysql:
     image: mysql:8.4
     container_name: ticketing-mysql
+    # 호스트 3306에 로컬 mysqld가 있으면 연결이 Docker가 아니라 로컬로 갈 수 있어 3307로 노출
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD (see .env.example)}
       MYSQL_DATABASE: ticketing
