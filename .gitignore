@@ -1,0 +1,17 @@
+# 환경 변수 파일
+.env
+.env.*
+!.env.example
+
+# Gradle / IDE
+.gradle/
+build/
+out/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
