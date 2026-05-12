@@ -3,11 +3,9 @@ package com.lmj.ticketing.presentation.concert;
 import com.lmj.ticketing.application.concert.ConcertQueryService;
 import com.lmj.ticketing.application.concert.dto.ConcertResponse;
 import java.util.List;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,5 +20,10 @@ public class ConcertController {
             @RequestParam(defaultValue = "10") int size
     ) {
         return concertQueryService.findAll(page, size);
+    }
+
+    @GetMapping("/{id}")
+    public ConcertResponse getConcert(@PathVariable Long id) {
+        return concertQueryService.findById(id);
     }
 }
