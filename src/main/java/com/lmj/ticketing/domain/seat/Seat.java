@@ -3,6 +3,8 @@ package com.lmj.ticketing.domain.seat;
 import com.lmj.ticketing.domain.show.ConcertShow;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -37,6 +39,10 @@ public class Seat {
 
     @Column(name = "price", nullable = false)
     private int price;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false, length = 20)
+    private SeatStatus status = SeatStatus.AVAILABLE;
 
     @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private LocalDateTime createdAt;
